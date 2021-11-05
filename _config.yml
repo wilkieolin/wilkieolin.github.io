@@ -1,1 +1,10 @@
+title: Research & Technology Overview
+author: Wilkie Olin-Ammentorp
+email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Summaries of recent research projects & technology.
+# social links
+github_username:  wilkieolin # DO NOT include the @ character, or else the build will fail!
 theme: jekyll-theme-midnight
+
+show_excerpts: true # set to false to remove excerpts on the homepage
