@@ -1,3 +1,7 @@
-# Test title
+---
+title: Home
+---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pharetra tincidunt elit posuere sollicitudin. Sed id ante tincidunt, interdum sapien ut, iaculis sem. Pellentesque viverra enim ut ex ullamcorper efficitur. Praesent ultrices porta iaculis. Maecenas dignissim nisi at diam porta, nec volutpat odio dictum. Nulla tempor, neque eget hendrerit vulputate, eros lectus lacinia enim, sit amet varius mauris felis ut sem. Praesent ut aliquet nisl, vel varius felis. 
+
+Update autotest 3
