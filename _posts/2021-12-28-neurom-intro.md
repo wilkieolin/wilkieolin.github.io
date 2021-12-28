@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Brief Introduction to Neuromorphic Computing
+title: An Introduction to Neuromorphic Computing in 2021
 categories: computing research
 ---
 
@@ -72,4 +72,4 @@ The [BrainScaleS neuromorphic system](https://ieeexplore.ieee.org/abstract/docum
 
 # Conclusion
 
-Currently, a large divide exists between the capabilities of artificial intelligence and biology. As long as this gap exists - while AI systems can't adapt to new information efficiently or extend knowledge to new situations - there is room for neuromorphic research. Despite rapid progress over the previous decades, the brain still has many interactions and processes which are not well understood. As we improve our understanding of the brain and its capabilities, it's natural to try and apply this biological knowledge to improve the capabilities of artificial systems. In my view, much of current neuromorphic engineering focuses on applying the principles of sparse and distributed computation to improve the capabilities of AI and allow it to run on novel, efficient hardware with improved resilience. This does not include all neuromorphic research, and does not address every issue facing AI today. However, the expansion and shifting of neuromorphic research in the past few years has demonstrated the huge potential of this area and I expect many methods developed within it to reach the mainstream in the near future. 
+Currently, a large divide exists between the capabilities of artificial intelligence and biology. As long as this gap exists - while AI systems can't adapt to new information efficiently or extend knowledge to new situations - there is room for neuromorphic research. Despite rapid progress over the previous decades, the brain still has many interactions and processes which are not well understood. As we improve our understanding of the brain and its capabilities, it's natural to try and apply this biological knowledge to improve the capabilities of artificial systems. In my view, much of current neuromorphic engineering focuses on applying the principles of sparse and distributed computation to improve the capabilities of AI and allow it to run on novel, efficient hardware with improved resilience. This does not include all neuromorphic research, and these specific approaches do not address every issue facing AI today. However, the expansion and shifting of neuromorphic research in the past few years has demonstrated the huge potential of this area and I expect many methods developed within it to reach the mainstream in the near future. 
