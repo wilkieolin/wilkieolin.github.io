@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Vector-Symbolic Architectures, Part 2
+title: Vector-Symbolic Architectures, Part 2 - Bundling
 categories: VSAs computing introduction
 ---
 
@@ -98,6 +98,15 @@ dimensionality = 1000
 ```python
 key, subkey = random.split(key)
 vsa_concepts = generate_symbols(subkey, len(concepts), dimensionality)
+
+desk = vsa_concepts[0:1,:]
+chair = vsa_concepts[1:2,:]
+mug = vsa_concepts[2:3,:]
+dog = vsa_concepts[3:4,:]
+cat = vsa_concepts[4:5,:]
+tiger = vsa_concepts[5:6,:]
+airplane = vsa_concepts[6:7,:]
+car = vsa_concepts[7:8,:]
 ```
 
 Each concept now has a corresponding symbol - for instance, "desk" is represented by the first row in the ```vsa_concepts``` matrix. Now, let's define the bundling operation.
@@ -107,7 +116,8 @@ Each concept now has a corresponding symbol - for instance, "desk" is represente
 
 ```python
 #Bundling operation for FHRR
-def bundle(symbols):
+def bundle(*symbols):
+    symbols = jnp.stack(symbols, axis=0)
     #convert each angle to a complex number
     pi = jnp.pi
     j = jnp.array([0+1j])
@@ -130,7 +140,7 @@ Let's start with a simple demonstration of using bundling to represent a set of 
 
 
 ```python
-animals = bundle(vsa_concepts[3:6,:]) #bundle (dog, cat, tiger)
+animals = bundle(dog, cat, tiger)
 ```
 
 We've now created a single symbol to represent our collection of "animals." As we can see by calculating its similarity to all of the concepts we've defined, the only symbols highly similar to it are "dog," "cat," and "tiger." This is exactly what we expect, since those were the symbols bundled together to create the 'animals' symbol. 
@@ -155,8 +165,8 @@ Let's create some other bundled vectors to represent the lists we had previously
 
 
 ```python
-pets = bundle(vsa_concepts[3:5,:]) #bundle (dog, cat)
-furniture = bundle(vsa_concepts[0:2,:]) #bundle (desk, chair)
+pets = bundle(dog, cat) 
+furniture = bundle(desk, chair) 
 ```
 
 Once again, the new bundled vectors formed for these sets are only similar to the inputs used to create them:
@@ -238,9 +248,26 @@ Let's examine how difficult it is to re-discover which components were used to c
 
 
 ```python
+#Bundling operation for FHRR matrices
+def bundle_matrix(symbols):
+    pi = jnp.pi
+    j = jnp.array([0+1j])
+
+    #sum the complex numbers to find the bundled vector
+    cmpx = jnp.exp(pi * j * symbols)
+    bundle = jnp.sum(cmpx, axis=0)
+    #convert the complex sum back to an angle
+    bundle = jnp.angle(bundle) / pi
+    bundle = jnp.reshape(bundle, (1, -1))
+
+    return bundle
+```
+
+
+```python
 #calculate the 'signal' - similarity between a set of input symbols and their bundle
 def inner_similarity(input_symbols):
-    b = bundle(input_symbols)
+    b = bundle_matrix(input_symbols)
     s = similarity(b, input_symbols)
 
     return s
@@ -250,7 +277,7 @@ def inner_similarity(input_symbols):
 ```python
 #calculate the 'noise' - similarity between a bundled symbol and a set of random symbols
 def outer_similarity(input_symbols, random_symbols):
-    b = bundle(input_symbols)
+    b = bundle_matrix(input_symbols)
     s = similarity(b, random_symbols)
 
     return s
@@ -295,7 +322,7 @@ def bundle_trial(key,
     return intra_mean, inter_mean, intra_std, inter_std
 ```
 
-We'll run this experiment over a range of 2 symbols in a bundle to 101 symbols in a bundle, with 5 trials at each step. The default dimensionality is the same as we've been using (1000). This experiment should take around 60 seconds to run on Google Colab. 
+We'll run this experiment over a range of 2 symbols in a bundle to 101 symbols in a bundle, with 5 trials at each step. The default dimensionality is the same as we've been using (1000). This experiment should take around 60 seconds to run. 
 
 
 ```python
@@ -352,13 +379,14 @@ Here, we plot a distribution of similarities by identifying its mean value (blue
 From the previous notebook, we know that vector-symbol dimensionality has an effect on the distribution of similarities between random symbols. Given this relationship, we can predict how this also affects the ability of bundling to represent more symbols as dimensionality increases. You can check your prediction by modifying the code above and re-running the experiment and plots. 
 
 
+
 ```python
 plot_results(n_bundle, bundle_means, bundle_stds, sigma = 3.0)
 ```
 
 
     
-![png](/assets/vsa_2/output_36_0.png)
+![png](/assets/vsa_2/output_37_0.png)
     
 
 
@@ -372,7 +400,7 @@ For instance, in one example we bundled 'dog' and 'cat' together into 'pets.' In
 
 
 ```python
-similarity(vsa_concepts[3:4,:], vsa_concepts[4:5,:]).item()
+similarity(dog, cat).item()
 ```
 
 
@@ -388,4 +416,4 @@ This is one of the challenges of VSAs: determining how input data, including pri
 
 Sets alone are insufficient to describe complex relationships. If I want to create a symbol to represent the concept of "the cat ate the fish," it's insufficient to simply bundle together a set of concepts such as "cat, eating, fish." Bundles do not contain order or precedence, so when decoding the bundle it would be just as valid to interpret it as "fish, eating, cat," which is not the concept we wish to convey.
 
-Binding provides a way of attaching two or more concepts together in a way preserves information from its components, but which *does not* preserve similarity to them. We'll see in the next tutorial how this additional function allows us to construct advanced data structures within a symbol, including trees and graphs. 
+Binding provides a way of attaching two or more concepts together in a way preserves information from its components, but which *does not* preserve similarity to them. We'll see in the next tutorial how this additional function allows us to construct advanced data structures within a symbol, including graphs. 

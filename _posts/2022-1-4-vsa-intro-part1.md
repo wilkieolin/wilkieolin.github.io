@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Vector-Symbolic Architectures, Part 1
+title: Vector-Symbolic Architectures, Part 1 - Similarity
 categories: VSAs computing introduction
 ---
 
