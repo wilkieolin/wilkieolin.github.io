@@ -63,15 +63,15 @@ Even with this relatively simple graph, bundling alone isn't insufficient to rep
 
 # Binding
 
-Below, we'll represent the binding operation with $×$. Bundling is represented with + since it resembles traditional addition. 
+Below, we'll represent the binding operation with ***×***. Bundling is represented with + since it resembles traditional addition. 
 
 Similar to bundling, binding takes a set of 2 or more inputs and combines their information to create a single output. However, unlike bundling, the output of binding is dissimilar to the inputs. Binding's utility comes from the fact it is *similarity preserving*: if you measure the similarity between two symbols, bind both with third symbol, and measure the similarity between the two new symbols, the similarities will be approximately the same value:
 
-$ A' = A × C $
+***A' = A × C***
 
-$ B' = B × C $
+***B' = B × C***
 
-$ sim(A, B) ≈ sim(A', B') $
+***sim(A, B) ≈ sim(A', B')***
 
 Binding therefore allows us to take a group of symbols with a certain relationship (represented by similarity) and transform them to produce new symbols while preserving those previous relationships. 
 
@@ -162,7 +162,7 @@ Now, we'll define the binding function and demonstrate its preservation of the i
 
 The binding operation for the Fourier Holographic Reduced Representation (FHRR) VSA is fairly simple: the angles from each symbol are summed. You can think of this as taking the first vector, and moving each of its angles ahead by the amount in the next vector. 
 
-Obviously, we can create an inverse operation for this ($÷$) as well - subtracting the angles we just added to get (approximately) the original symbol. The binding and unbinding functions are defined below.
+Obviously, we can create an inverse operation for this (÷) as well - subtracting the angles we just added to get (approximately) the original symbol. The binding and unbinding functions are defined below.
 
 
 ```python
@@ -232,7 +232,7 @@ self_similarity = similarity(vsa_people, vsa_people_2)
 so_2 = similarity_outer(vsa_people_2, vsa_people_2)
 ```
 
-As we can see, after binding each of the original 'people' symbols with a new, random symbol, the bound symbols are dissimilar to the people symbols ($A ≉  A × X $):
+As we can see, after binding each of the original 'people' symbols with a new, random symbol, the bound symbols are dissimilar to the people symbols (***A ≉  A × X***):
 
 
 ```python
@@ -247,7 +247,7 @@ self_similarity
 
 
 
-But, simultaneously, if we plot the similarity of the new, bound symbols to themselves, the plot is identical to before within the limits of numerical noise ($sim(A, B) ≈ sim(A × C, B × C)$):
+But, simultaneously, if we plot the similarity of the new, bound symbols to themselves, the plot is identical to before within the limits of numerical noise (***sim(A, B) ≈ sim(A × C, B × C)***):
 
 
 ```python
@@ -277,7 +277,7 @@ jnp.mean(so - so_2)
 
 So, how does binding allow us to represent hierarchy in the way we'll need to construct a graph? Binding allows us to combine the symbols representing people to represent edges. 
 
-$ Edge_0 = (Alice × Bob) $
+***Edge_0 = (Alice × Bob)***
 
 Because of the properties of binding we demonstrated above, we know all of the new symbols we create using it will still be dissimilar to one another *and* to the original symbols:
 
@@ -310,7 +310,7 @@ plot_similarity(edge_0)
 
 This plot confirms that despite being constructed from the symbols for 'Alice' and 'Bob,' the symbol we made from binding them together isn't similar to either. Therefore, we can bundle together a series of symbols representing edges - we know that each of these symbols will be unique (dissimilar to the others) and represent a combination of two inputs. 
 
-$ G = (Alice × Bob) + (Bob × Charli) + (Alice × Charli) + (Dave × Eve) $
+***G = (Alice × Bob) + (Bob × Charli) + (Alice × Charli) + (Dave × Eve)***
 
 
 ```python
@@ -345,9 +345,9 @@ similarity(vsa_graph, bind(dave, eve)).item()
 
 
 
-Because there is no relationship between Alice and Eve encoded in the graph, there is no similarity between this symbol and the graph. Conversely, there *is* significant similarity between Dave $×$ Eve and the graph because it includes that relationship.
+Because there is no relationship between Alice and Eve encoded in the graph, there is no similarity between this symbol and the graph. Conversely, there *is* significant similarity between ***Dave × Eve*** and the graph because it includes that relationship.
 
-Let's make another query, and figure out whom Alice is friends with. To do this, we'll apply the 'unbinding' operator to the graph with $Alice$ as an argument: 
+Let's make another query, and figure out whom Alice is friends with. To do this, we'll apply the 'unbinding' operator to the graph with ***Alice*** as an argument: 
 
 
 ```python
@@ -361,17 +361,17 @@ plot_similarity(alice_friends)
     
 
 
-By unbinding $Alice$ from the graph, symbols which were bound to it now become similar to their original selves. We can show this formally:
+By unbinding ***Alice*** from the graph, symbols which were bound to it now become similar to their original selves. We can show this formally:
 
-$ G = (Alice × Bob) + (Bob × Charli) + (Alice × Charli) + (Dave × Eve) $
+***G = (Alice × Bob) + (Bob × Charli) + (Alice × Charli) + (Dave × Eve)***
 
-$ G' = Alice ÷ G = Bob + Charli + (Bob × Charli ÷ Alice) + (Dave × Eve ÷ Alice) $
+***G' = Alice ÷ G = Bob + Charli + (Bob × Charli ÷ Alice) + (Dave × Eve ÷ Alice)***
 
 When we look at those last two terms, where 'Alice' doesn't cancel anything out, these terms aren't similar to anything in our list of people, so essentially these terms can be viewed as noise:
 
-$ G' = Alice ÷ G = Bob + Charli + noise $
+***G' = Alice ÷ G = Bob + Charli + noise***
 
-This is why when we look at the people $G'$ is similar to, only Bob and Charli have significant values. 
+This is why when we look at the people ***G'*** is similar to, only Bob and Charli have significant values. 
 
 We can make more powerful queries by extending our strategy, for instance finding the friends of Alice and Eve *simultaneously* by using bundling to make a superposition of queries:
 
