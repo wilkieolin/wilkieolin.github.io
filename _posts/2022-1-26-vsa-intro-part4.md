@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vector-Symbolic Architectures, Part 4 - Mapping
-categories: VSAs computing introduction neural_networks
+categories: VSAs
 ---
 
 <a href="https://colab.research.google.com/github/wilkieolin/VSA-notebooks/blob/main/VSA_Introduction_4_Mapping.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>

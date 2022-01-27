@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vector-Symbolic Architectures, Part 3 - Binding
-categories: VSAs computing introduction
+categories: VSAs
 ---
 
 <a href="https://colab.research.google.com/github/wilkieolin/VSA-notebooks/blob/main/VSA_Introduction_3_Binding.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>

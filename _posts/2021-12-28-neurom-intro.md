@@ -1,7 +1,7 @@
 ---
 layout: post
 title: An Introduction to Neuromorphic Computing in 2021
-categories: computing research
+categories: neuromorphic
 ---
 
 The question "what is neuromorphic computing" has a textbook answer: it's research in computing methods which are inspired by the brain. However, the problem with this definition is that because there are so many ways be inspired by the brain, it often appears debatable whether a certain approach is neuromorphic. 
