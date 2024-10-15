@@ -4,6 +4,10 @@ title: Papers
 
 Links to and summaries of recent publications:
 
+[*Modeling Performance of Data Collection Systems for High-Energy Physics*](https://arxiv.org/abs/2407.00123): Computing through multiple, specialized components is one approch to continue offering increased performance per watt as Moore's Law continues to slow down. But when you put one of these new components in a large system - such as the data acqusition system at the LHC which processes terabytes of data per second - how does this affect how much power you'll save, how much data you'll process, and the quality of that data? We develop a framework to quantitatively estimate these trade-offs and estimate the impacts of multiple potential changes to data processing at the LHC. 
+
+[*Hyperdimensional Computing Provides a Programming Paradigm for Oscillatory Systems*](https://arxiv.org/abs/2312.11783): How can devices which oscillate - anything from a pendulum to a photon - be used to compute? We demonstrate how oscillators can be linked in circuits to compute multiple applications including graph compression, factorization, and neural networks driven by continuous, time-varying analog signals. 
+
 [*Deep Phasor Networks*](https://arxiv.org/pdf/2106.11908): Demonstrated deep neural networks which utilize a phasor-based activation function. These networks can compete with traditional networks on common image-recognition tasks, and carry the advantage that they can inherently be executed via a spiking mode without any conversion step between modes. [Code](https://github.com/wilkieolin/phasor_networks)
 
 [*Bridge Networks*](https://dl.acm.org/doi/pdf/10.1145/3477145.3477161): Applied concepts from vector-symbolic architectures to create a network which learns the relationship between two domains of information. E.g. given an image, it can predict a label, and when given a label, it can predict an image. The unique architecture used also allows the network to perform self-distillation and exhibit potential continual learning capabilities. [Code](https://github.com/wilkieolin/bridge_networks)
