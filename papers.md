@@ -4,9 +4,17 @@ title: Papers
 
 Links to and summaries of recent publications:
 
-[*Modeling Performance of Data Collection Systems for High-Energy Physics*](https://arxiv.org/abs/2407.00123): Computing through multiple, specialized components is one approach to continue offering increased performance per watt as Moore's Law continues to slow down. But when you put one of these new components in a large system - such as the data acquisition system at the LHC which processes terabytes of data per second - how does this affect how much power you'll save, how much data you'll process, and the quality of that data? We develop a framework to quantitatively estimate these trade-offs and estimate the impacts of multiple potential changes to data processing at the LHC. 
+[*Modeling Performance of Data Collection Systems for High-Energy Physics*](https://arxiv.org/abs/2407.00123)
 
-[*Hyperdimensional Computing Provides a Programming Paradigm for Oscillatory Systems*](https://arxiv.org/abs/2312.11783): How can devices which oscillate - anything from a pendulum to a photon - be used to compute? We demonstrate how oscillators can be linked in circuits to compute multiple applications including graph compression, factorization, and neural networks driven by continuous, time-varying analog signals. 
+![Interlocking puzzle pieces of physics data, sensors, code, and computers](assets/papers/systemflow_cover_image.jpg)
+
+Computing through multiple, specialized components is one approach to continue offering increased performance per watt as Moore's Law continues to slow down. But when you put one of these new components in a large system - such as the data acquisition system at the LHC which processes terabytes of data per second - how does this affect how much power you'll save, how much data you'll process, and the quality of that data? We develop a framework to quantitatively estimate these trade-offs and estimate the impacts of multiple potential changes to data processing at the LHC. 
+
+[*Hyperdimensional Computing Provides a Programming Paradigm for Oscillatory Systems*](https://arxiv.org/abs/2312.11783)
+
+![Illustration of different computing devices for digital and phase-based computing](assets/papers/devices_copy.png)
+
+How can devices which oscillate - anything from a pendulum to a photon - be used to compute? We demonstrate how oscillators can be linked in circuits to compute multiple applications including graph compression, factorization, and neural networks driven by continuous, time-varying analog signals. 
 
 [*Deep Phasor Networks*](https://arxiv.org/pdf/2106.11908): How can we meaningfully draw connections between biological and artificial neural networks? Biological networks famously communicate with 'spikes,' while artificial networks utilize real-valued numbers. By interpreting spikes as representing a phase, we demonstrate that one network with set parameters can execute equivalently via spiking or real-valued activations. [Code](https://github.com/wilkieolin/phasor_networks)
 
